@@ -1,23 +1,25 @@
 package main
 
 import (
-	"HubCityAviation/middleware"
-	"HubCityAviation/routes/airplanes"
-	"HubCityAviation/routes/users"
-
+	"github.com/SFerguson90/HubCityAviation/controllers"
+	"github.com/SFerguson90/HubCityAviation/inits"
 	"github.com/gin-gonic/gin"
 )
+
+func init() {
+	inits.LoadEnv()
+	inits.DBInit()
+}
 
 func main() {
 	r := gin.Default()
 
-	// Setup middleware
-	r.Use(middleware.KerberosAuth())
+	r.GET("/airplanes", controllers.GetAirplanes)
+	r.POST("/airplanes", controllers.CreateAirplane)
 
-	// Register routes
-	users.RegisterRoutes(r)
-	airplanes.RegisterRoutes(r)
-	// ... register other route groups as needed
+	r.GET("/airplane/:id", controllers.GetAirplane)
+	r.PUT("/airplane/:id", controllers.UpdateAirplane)
+	r.DELETE("/airplane/:id", controllers.DeleteAirplane)
 
-	r.Run() // Start the server
+	r.Run()
 }

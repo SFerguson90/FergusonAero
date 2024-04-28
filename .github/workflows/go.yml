@@ -1,0 +1,26 @@
+name: Build go app and push to Azure
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.21
+
+    - name: Build
+      run: go build -o build/go-app.exe -v
+
+    - name: Deploy to Azure
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: ferguson-aero
+        package: build/
+        publish-profile: ${{ secrets.azureWebAppPublishProfile }}

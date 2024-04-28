@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/SFerguson90/HubCityAviation/inits"
-	"github.com/SFerguson90/HubCityAviation/models"
+	"github.com/SFerguson90/FergusonAero/inits"
+	"github.com/SFerguson90/FergusonAero/models"
 )
 
 func init() {

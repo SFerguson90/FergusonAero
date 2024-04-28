@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/SFerguson90/HubCityAviation/controllers"
-	"github.com/SFerguson90/HubCityAviation/inits"
+	"github.com/SFerguson90/FergusonAero/controllers"
+	"github.com/SFerguson90/FergusonAero/inits"
 	"github.com/gin-gonic/gin"
 )
 

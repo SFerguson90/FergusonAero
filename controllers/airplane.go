@@ -3,8 +3,8 @@ package controllers
 import (
 	"fmt"
 
-	"github.com/SFerguson90/HubCityAviation/inits"
-	"github.com/SFerguson90/HubCityAviation/models"
+	"github.com/SFerguson90/FergusonAero/inits"
+	"github.com/SFerguson90/FergusonAero/models"
 
 	"github.com/gin-gonic/gin"
 )
